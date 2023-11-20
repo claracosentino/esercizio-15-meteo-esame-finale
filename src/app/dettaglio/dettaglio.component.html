@@ -1,0 +1,17 @@
+dettaglio
+<div class="container">
+    <table class="table w-50">
+      <thead>
+        <tr>
+          <th scope="col">Specie di orario</th>
+          <th scope="col">Temperatura</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let temperatura of temperature">
+          <th scope="row">{{temperatura.timepoint}}</th>
+          <td>{{temperatura.temp2m}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

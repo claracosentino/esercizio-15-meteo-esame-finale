@@ -1,1 +1,13 @@
-home
+<div class="container">
+    <form>
+        <div class="mb-3">
+            <label for="inputLatitudine" class="form-label">Latitudine</label>
+            <input type="number" name="inputLatitudine" [(ngModel)]="jsonIn.latitudine" class="form-control" id="inputLatitudine" required>
+        </div>
+        <div class="mb-3">
+            <label for="inputLongitudine" class="form-label">Longitudine</label>
+            <input type="number" name="inputLongitudine" [(ngModel)]="jsonIn.longitudine" class="form-control" id="inputLongitudine" required>
+        </div>
+        <button routerLink="/dettaglio/{{jsonIn.latitudine}}/{{jsonIn.longitudine}}" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
