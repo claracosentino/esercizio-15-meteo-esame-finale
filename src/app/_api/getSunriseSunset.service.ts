@@ -5,14 +5,14 @@ import { ActivatedRoute } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class GetTemperaturaService implements OnInit {
+export class GetSunriseSunsetService implements OnInit {
 
     constructor(private apiService: ApiService) { }
 
     ngOnInit(): void {
     }
 
-    getTemperatura(lat:string, long: string) {
-       return this.apiService.getTemperatura(lat, long)
+    getSunriseSunset(lat:string, long: string) {
+       return this.apiService.getSunriseSunset(lat, long)
     }
 }

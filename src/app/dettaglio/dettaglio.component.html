@@ -15,3 +15,8 @@ dettaglio
       </tbody>
     </table>
 </div>
+
+<ng-container *ngIf="sunriseSunset.status === 'OK'">
+  <p>L'alba è alle {{sunriseSunset.sunrise}}</p>
+  <p>Il tramonto è alle {{sunriseSunset.sunset}}</p>
+</ng-container>

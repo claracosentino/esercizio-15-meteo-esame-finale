@@ -10,19 +10,21 @@ import { SunriseSunsetType } from '../_models/sunrisesunset.type';
 export class ApiService {
     constructor(private http: HttpClient) { }
 
-    getTemperatura(lat:number, long: number) {
+    getTemperatura(lat:string, long: string) {
         return this.http
           .get('https://www.7timer.info/bin/astro.php?lon=' + long + '&lat=' + lat + '&ac=0&unit=metric&output=json&tzshift=0')
           .pipe(map((response:any) => {
+            console.log(response.dataseries)
             return response.dataseries as TemperaturaType[]
         }))
     }
 
-    getSunriseSunset(lat:number, long: number) {
+    getSunriseSunset(lat:string, long: string) {
         return this.http
           .get('https://api.sunrisesunset.io/json?lat=' + lat + '&lng=' + long)
           .pipe(map((response:any) => {
-            return response  as SunriseSunsetType[]
+            response.results.status = response.status
+            return response.results as SunriseSunsetType
         }))
     }
 }
