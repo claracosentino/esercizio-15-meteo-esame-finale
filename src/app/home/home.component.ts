@@ -16,6 +16,11 @@ export class HomeComponent implements OnInit {
     longitudine: 0
   }
 
+  fotoMilano = '../../assets/milan-img.avif'
+  fotoMadrid = '../../assets/madrid-img.jpeg'
+  fotoBerlino = '../../assets/berlin-img.jpeg'
+  fotoRuffia = '../../assets/ruffia-img.jpeg'
+
   ngOnInit(): void {
     
   }

@@ -8,12 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from './_api/api.service';
 import { DettaglioComponent } from './dettaglio/dettaglio.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CityCardComponent } from './city-card/city-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DettaglioComponent
+    DettaglioComponent,
+    NavbarComponent,
+    CityCardComponent
   ],
   imports: [
     BrowserModule,

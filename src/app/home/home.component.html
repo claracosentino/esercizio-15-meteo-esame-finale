@@ -1,13 +1,76 @@
-<div class="container">
-    <form>
-        <div class="mb-3">
-            <label for="inputLatitudine" class="form-label">Latitudine</label>
-            <input type="number" name="inputLatitudine" [(ngModel)]="jsonIn.latitudine" class="form-control" id="inputLatitudine" required>
+<section class="hero">
+    <div class="container">
+        <div class="row hero__scritte align-items-center">
+            <div class="col-8">
+                <h1>Weather <span> in your pocket </span> directly from your phone in few clicks</h1>
+                <h2>Track weather forecasting around you to <span> enjoy life at the fullest. </span><br>In realtà non è responsive per telefono ops</h2>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="inputLongitudine" class="form-label">Longitudine</label>
-            <input type="number" name="inputLongitudine" [(ngModel)]="jsonIn.longitudine" class="form-control" id="inputLongitudine" required>
+        <div class="row hero__scroll">
+            <i class="fa-solid fa-angle-down"></i>
         </div>
-        <button routerLink="/dettaglio/{{jsonIn.latitudine}}/{{jsonIn.longitudine}}" type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+    </div>
+</section>
+
+<section class="form mt-5">
+    <div class="container">
+        <div class="form__box">
+            <h3>Set latitude and longitude and find out the weather!</h3>
+            <form>
+                <div class="form__gruppo-input">
+                    <div class="input mb-3 w-50">
+                        <label for="inputLatitudine" class="form-label">Latitude</label>
+                        <input type="number" name="inputLatitudine" [(ngModel)]="jsonIn.latitudine" class="form-control" id="inputLatitudine" required>
+                    </div>
+                    <div class="input mb-3 w-50">
+                        <label for="inputLongitudine" class="form-label">Longitude</label>
+                        <input type="number" name="inputLongitudine" [(ngModel)]="jsonIn.longitudine" class="form-control" id="inputLongitudine" required>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button routerLink="/dettaglio/{{jsonIn.latitudine}}/{{jsonIn.longitudine}}" type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="suggested-cities">
+    <div class="container">
+        <h3>Our favourite cities</h3>
+        <div class="row">
+            <app-city-card
+               [bgImg]="fotoMilano"
+               [nomeCitta]="'Milano'"
+               [nomeStato]="'Italy'"
+               [latitude]="'45.464194'"
+               [longitude]="'9.1896346'"
+               class="col-3">
+            </app-city-card>
+            <app-city-card
+               [bgImg]="fotoBerlino"
+               [nomeCitta]="'Berlino'"
+               [nomeStato]="'Germany'"
+               [latitude]="'52.5170365'"
+               [longitude]="'13.3888599'"
+               class="col-3">
+            </app-city-card>
+            <app-city-card
+               [bgImg]="fotoMadrid"
+               [nomeCitta]="'Madrid'"
+               [nomeStato]="'Spain'"
+               [latitude]="'40.4167047'"
+               [longitude]="'-3.7035825'"
+               class="col-3">
+            </app-city-card>
+            <app-city-card
+               [bgImg]="fotoRuffia"
+               [nomeCitta]="'Ruffia'"
+               [nomeStato]="'Italy'"
+               [latitude]="'44.7066085'"
+               [longitude]="'7.6034584'"
+               class="col-3">
+            </app-city-card>
+        </div>
+    </div>
+</section>
