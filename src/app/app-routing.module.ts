@@ -19,6 +19,9 @@ const routes: Routes = [
       },
       getSunriseSunset: (route: ActivatedRouteSnapshot) => {
         return inject(GetSunriseSunsetService).getSunriseSunset(route.paramMap.get('lat')!, route.paramMap.get('long')!);
+      },
+      getSunriseSunsetTomorrow: (route: ActivatedRouteSnapshot) => {
+        return inject(GetSunriseSunsetService).getSunriseSunsetTomorrow(route.paramMap.get('lat')!, route.paramMap.get('long')!);
       }
     }
   }

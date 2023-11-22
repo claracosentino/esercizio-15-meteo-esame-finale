@@ -15,4 +15,8 @@ export class GetSunriseSunsetService implements OnInit {
     getSunriseSunset(lat:string, long: string) {
        return this.apiService.getSunriseSunset(lat, long)
     }
+
+    getSunriseSunsetTomorrow(lat:string, long: string) {
+       return this.apiService.getSunriseSunsetTomorrow(lat, long)
+    }
 }

@@ -65,25 +65,29 @@ body {
 
 }
 
-.form {
-    &__box {
-        width: 85%;
-        margin: 0 auto;
-        padding: 2rem;
-        border-radius: 16px;
-
-        background: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-
-        color: $bianco-puro;
-
-        h3 {
-            text-align: center;
-        }
+.form__box, .sunset-sunrise__box {
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 16px;
+    
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    color: $bianco-puro;
+    
+    h3 {
+        text-align: center;
+        font-weight: bolder;
     }
+}
 
+.form__box {
+    width: 85%;
+}
+
+.form {
     
     &__gruppo-input {
         
@@ -167,4 +171,65 @@ body {
 
     }
 
+}
+
+.sunset-sunrise__box {
+    width: 65%;
+
+    h3 {
+        color: $grigio;
+    }
+}
+
+.sunset-sunrise {
+
+    &__data {
+
+        text-align: center;
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: bolder;
+        }
+
+        img {
+            width: 120px;
+            height: auto;
+        }
+
+        .time {
+            margin-bottom: 0.1rem;
+            margin-top: 0.7rem;
+            font-size: 1.5rem;
+        }
+
+        .dawn-dusk {
+            font-size: 1rem;
+            font-style: italic;
+            font-weight: lighter;
+        }
+    }
+
+    button {
+        width: auto;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        background-color: $arancione;
+        border: $bianco 2px solid;
+        color: $grigio;
+
+        &:hover {
+            color: $arancione;
+            background-color: $bianco;
+            border: $arancione 2px solid;
+        }
+    }
+}
+
+.tabella-temperature {
+    table {
+        margin-top: 3rem;
+        --bs-table-bg: none;
+        text-align: center;
+    }
 }

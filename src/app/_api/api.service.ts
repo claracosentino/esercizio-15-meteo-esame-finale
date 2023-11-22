@@ -27,4 +27,13 @@ export class ApiService {
             return response.results as SunriseSunsetType
         }))
     }
+
+    getSunriseSunsetTomorrow(lat:string, long: string) {
+        return this.http
+          .get('https://api.sunrisesunset.io/json?lat=' + lat + '&lng=' + long + '&date=tomorrow')
+          .pipe(map((response:any) => {
+            response.results.status = response.status
+            return response.results as SunriseSunsetType
+        }))
+    }
 }

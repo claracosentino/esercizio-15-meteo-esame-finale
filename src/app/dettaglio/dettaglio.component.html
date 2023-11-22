@@ -1,22 +1,133 @@
-dettaglio
-<div class="container">
-    <table class="table w-50">
-      <thead>
-        <tr>
-          <th scope="col">Specie di orario</th>
-          <th scope="col">Temperatura</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let temperatura of temperature">
-          <th scope="row">{{temperatura.timepoint}}</th>
-          <td>{{temperatura.temp2m}}</td>
-        </tr>
-      </tbody>
-    </table>
-</div>
+<section class="sunset-sunrise mt-5">
+  <div class="container">
 
-<ng-container *ngIf="sunriseSunset.status === 'OK'">
-  <p>L'alba è alle {{sunriseSunset.sunrise}}</p>
-  <p>Il tramonto è alle {{sunriseSunset.sunset}}</p>
-</ng-container>
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn col-12" (click)="toggleSunsetSunriseToday = !toggleSunsetSunriseToday">
+        <ng-container *ngIf="toggleSunsetSunriseToday">
+          See tomorrow data
+        </ng-container>
+        <ng-container *ngIf="!toggleSunsetSunriseToday">
+          See today data
+        </ng-container>
+      </button>
+
+      <button type="button" class="btn col-12" (click)="toggleHourFormat24 = !toggleHourFormat24">
+        <ng-container *ngIf="toggleHourFormat24">
+          24h format
+        </ng-container>
+        <ng-container *ngIf="!toggleHourFormat24">
+          12h format
+        </ng-container>
+      </button>
+    </div>
+
+    <div class="sunset-sunrise__box">
+      <h3 *ngIf="toggleSunsetSunriseToday">Today</h3>
+      <h3 *ngIf="!toggleSunsetSunriseToday">Tomorrow</h3>
+      <div class="row">
+        <div class="sunset-sunrise__data col-6 d-flex justify-content-center flex-wrap">
+          <p class="title col-12">Sunrise</p>
+          <img src="../../assets/sunrise.png" alt="" class="col-12">
+
+          <p *ngIf="toggleSunsetSunriseToday" class="time col-12">
+            <ng-container *ngIf="toggleHourFormat24">
+              {{sunriseSunset.sunrise}}
+            </ng-container>
+            <ng-container *ngIf="!toggleHourFormat24">
+              {{convertIn24h(sunriseSunset.sunrise)}}
+            </ng-container>
+          </p>
+
+          <p *ngIf="!toggleSunsetSunriseToday" class="time col-12">
+            <ng-container *ngIf="toggleHourFormat24">
+              {{sunriseSunsetTomorrow.sunrise}}
+            </ng-container>
+            <ng-container *ngIf="!toggleHourFormat24">
+              {{convertIn24h(sunriseSunsetTomorrow.sunrise)}}
+            </ng-container>
+          </p>
+
+          <p *ngIf="toggleSunsetSunriseToday" class="dawn-dusk col-12">
+            <ng-container *ngIf="toggleHourFormat24">
+              dawn: {{sunriseSunset.dawn}}
+            </ng-container>
+            <ng-container *ngIf="!toggleHourFormat24">
+              dawn: {{convertIn24h(sunriseSunset.dawn)}}
+            </ng-container>
+          </p>
+
+          <p *ngIf="!toggleSunsetSunriseToday" class="dawn-dusk col-12">
+            <ng-container *ngIf="toggleHourFormat24">
+              dawn: {{sunriseSunsetTomorrow.dawn}}
+            </ng-container>
+            <ng-container *ngIf="!toggleHourFormat24">
+              dawn: {{convertIn24h(sunriseSunsetTomorrow.dawn)}}
+            </ng-container>
+          </p>
+
+        </div>
+        <div class="sunset-sunrise__data col-6 d-flex justify-content-center flex-wrap">
+          <p class="title col-12">Sunset</p>
+          <img src="../../assets/sunset.png" alt="" class="col-12">
+
+          <p *ngIf="toggleSunsetSunriseToday" class="time col-12">
+            <ng-container *ngIf="toggleHourFormat24">
+              {{sunriseSunset.sunset}}
+            </ng-container>
+            <ng-container *ngIf="!toggleHourFormat24">
+              {{convertIn24h(sunriseSunset.sunset)}}
+            </ng-container>
+          </p>
+
+          <p *ngIf="!toggleSunsetSunriseToday" class="time col-12">
+            <ng-container *ngIf="toggleHourFormat24">
+              {{sunriseSunsetTomorrow.sunset}}
+            </ng-container>
+            <ng-container *ngIf="!toggleHourFormat24">
+              {{convertIn24h(sunriseSunsetTomorrow.sunset)}}
+            </ng-container>
+          </p>
+
+          <p *ngIf="toggleSunsetSunriseToday" class="dawn-dusk col-12">
+            <ng-container *ngIf="toggleHourFormat24">
+              dusk: {{sunriseSunset.dusk}}
+            </ng-container>
+            <ng-container *ngIf="!toggleHourFormat24">
+              dusk: {{convertIn24h(sunriseSunset.dusk)}}
+            </ng-container>
+          </p>
+
+          <p *ngIf="!toggleSunsetSunriseToday" class="dawn-dusk col-12">
+            <ng-container *ngIf="toggleHourFormat24">
+              dusk: {{sunriseSunsetTomorrow.dusk}}
+            </ng-container>
+            <ng-container *ngIf="!toggleHourFormat24">
+              dusk: {{convertIn24h(sunriseSunsetTomorrow.dusk)}}
+            </ng-container>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tabella-temperature">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <table class="table w-50">
+        <thead>
+          <tr>
+            <th scope="col">Timestamp</th>
+            <th scope="col">Temperature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let temperatura of temperature">
+            <td>{{temperatura.timepoint}}</td>
+            <td>{{temperatura.temp2m}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
