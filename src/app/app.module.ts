@@ -10,6 +10,7 @@ import { DettaglioComponent } from './dettaglio/dettaglio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CityCardComponent } from './city-card/city-card.component';
+import { FormRicercaComponent } from './form-ricerca/form-ricerca.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CityCardComponent } from './city-card/city-card.component';
     HomeComponent,
     DettaglioComponent,
     NavbarComponent,
-    CityCardComponent
+    CityCardComponent,
+    FormRicercaComponent
   ],
   imports: [
     BrowserModule,

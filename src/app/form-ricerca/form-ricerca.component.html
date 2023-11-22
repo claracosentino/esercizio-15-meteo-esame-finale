@@ -1,0 +1,15 @@
+<form>
+                <div class="form__gruppo-input">
+                    <div class="input mb-3 w-50">
+                        <label for="inputLatitudine" class="form-label">Latitude</label>
+                        <input type="number" name="inputLatitudine" [(ngModel)]="jsonIn.latitudine" class="form-control" id="inputLatitudine" required>
+                    </div>
+                    <div class="input mb-3 w-50">
+                        <label for="inputLongitudine" class="form-label">Longitude</label>
+                        <input type="number" name="inputLongitudine" [(ngModel)]="jsonIn.longitudine" class="form-control" id="inputLongitudine" required>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button routerLink="/dettaglio/{{jsonIn.latitudine}}/{{jsonIn.longitudine}}" type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
